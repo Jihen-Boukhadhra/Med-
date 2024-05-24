@@ -43,34 +43,26 @@ VISITE * AllocationVisite(int n)
 { VISITE * visites ;
     visites=(VISITE*) malloc (n * sizeof (VISITE));
     if(!visites) exit(-3);
-    return visites ;
-}
+    return visites ;}
 void RemplirTabVisites(VISITE *  visites , int m )
-{
-  printf("Remplissage du Tableau de Visites");
-  for(int j=0; j<m; j++)
-      {
-         SaisirVisite(visites+j,j);
-       }
+{ printf("Remplissage du Tableau de Visites");
+  for(int j=0; j<m; j++)         SaisirVisite(visites+j,j);
 }
 DOSSIER ** AllocationDossier(int m)
 {DOSSIER **d;
    d=(DOSSIER**) malloc (m*sizeof(DOSSIER*));
    if(!d) exit(-1);
-   return d;
-}
+   return d;}
 void RemplirTabDossierMedical(DOSSIER ** d,int n)
 {for(int l=0;l<n;l++)
-    {
-        printf("\n saisir l'identifiant de patient ");
+    {printf("\n saisir l'identifiant de patient ");
         scanf("%d",&(*(d+l))->idPatient);
         printf("\n saisir l'etat sanitaire ");
         scanf("%s",&(*(d+l))->etat_sanitaire); }}
 void AfficherTabDossierMedical(DOSSIER**d,int m)
 {for(int l=0;l<m;l++)
     {printf("\n l'identifiant de patient est %d",(*(d+l))->idPatient);
-        printf("\n l'etat sanitaire est %s",(*(d+l))->etat_sanitaire);
-    }}
+        printf("\n l'etat sanitaire est %s",(*(d+l))->etat_sanitaire); }}
 void SaisirPatient(PATIENT*p)
 {printf("\n saisir le nom et le prenom ");
         scanf("%s", &p->nom_prenom);
@@ -87,8 +79,7 @@ void SaisirPatient(PATIENT*p)
         printf("\n saisir le nombre de visites ");
         scanf("%d", &p->nbr_visites);
         p->visites=AllocationVisite(p->nbr_visites);
-        RemplirTabVisites(p->visites,p->nbr_visites);
-}
+        RemplirTabVisites(p->visites,p->nbr_visites);}
 void AfficherPatient(PATIENT p,int i)
 {printf("\n les infos du patient %d ", i+1);
     printf("\n le nom complet du patient est %s " ,p.nom_prenom );
